@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lokrite Climate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <header>
+    <div class="logo">
+      <span class="logo-mark">⬡</span>
+      <span class="logo-text">Lokrite<em>Climate</em></span>
+    </div>
+    <div class="unit-toggle">
+      <button id="unitBtn" class="unit-btn">°C / °F</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="tagline">Precision weather, beautifully presented.</p>
+      <div class="search-wrap">
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Enter city name…"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="searchBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </button>
+      </div>
+      <div class="location-btn-wrap">
+        <button id="locationBtn" class="location-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+          </svg>
+          Use my location
+        </button>
+      </div>
+    </section>
+
+    <div id="loader" class="loader hidden">
+      <div class="spinner"></div>
+    </div>
+
+    <div id="error" class="error-card hidden">
+      <span class="error-icon">⚠</span>
+      <p id="errorMsg">City not found. Please try again.</p>
+    </div>
+
+    <section id="weatherCard" class="weather-card hidden">
+      <div class="card-top">
+        <div class="location-info">
+          <h1 id="cityName">—</h1>
+          <p id="countryDate">—</p>
+        </div>
+        <div class="condition-wrap">
+          <img id="weatherIcon" src="" alt="weather icon" />
+          <p id="conditionText">—</p>
+        </div>
+      </div>
+
+      <div class="temp-display">
+        <span id="tempMain">—</span>
+        <span class="temp-unit" id="tempUnit">°C</span>
+      </div>
+
+      <p id="feelsLike" class="feels-like">Feels like —</p>
+
+      <div class="divider"></div>
+
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="stat-label">Humidity</span>
+          <span class="stat-val" id="humidity">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Wind</span>
+          <span class="stat-val" id="wind">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Visibility</span>
+          <span class="stat-val" id="visibility">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Pressure</span>
+          <span class="stat-val" id="pressure">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Sunrise</span>
+          <span class="stat-val" id="sunrise">—</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Sunset</span>
+          <span class="stat-val" id="sunset">—</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="forecastSection" class="forecast-section hidden">
+      <h2 class="section-title">5-Day Forecast</h2>
+      <div id="forecastGrid" class="forecast-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Lokrite Climate · Powered by <a href="https://openweathermap.org" target="_blank" rel="noopener">OpenWeatherMap</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
